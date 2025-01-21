@@ -14,7 +14,7 @@ source:
 
 build:
   skip: true  # [win]
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -32,7 +32,7 @@ requirements:
 
 test:
   commands:
-    - echo '.quit' | sqlite3 -cmd ".load zstd_vfs"
+    - echo '.quit' | sqlite3 -cmd ".load zstd_vfs"  # [build_platform == target_platform]
 
 about:
   home: https://github.com/mlin/sqlite_zstd_vfs
