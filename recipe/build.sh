@@ -15,5 +15,7 @@ mkdir -p $PREFIX/lib
 find . -name *zstd_vfs$SHLIB_EXT* -exec ls -l {} \;
 cp $(find . -name zstd_vfs$SHLIB_EXT | tail -n 1) $PREFIX/lib
 
-# Simple test
-echo '.quit' | sqlite3 -cmd ".load zstd_vfs"
+if [[ "$CONDA_BUILD_CROSS_COMPILATION" != "1" ]]; then
+    # Simple test
+    echo '.quit' | sqlite3 -cmd ".load zstd_vfs"
+fi
